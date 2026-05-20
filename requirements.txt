@@ -1,0 +1,10 @@
+pandas
+matplotlib
+seaborn
+pingouin
+statsmodels
+prince
+streamlit
+openpyxl
+scipy
+plotly
