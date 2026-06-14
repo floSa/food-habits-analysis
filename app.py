@@ -104,4 +104,4 @@ de Benzécri), nuage de mots (**wordcloud**).
 **Aperçu des données brutes :**
 """
     )
-    st.dataframe(df.head(), use_container_width=True)
+    st.dataframe(df.head(), width="stretch")
