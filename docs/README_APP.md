@@ -7,7 +7,7 @@ graphiques + tests + interprétation, l'un des cinq volets traités dans les not
 ## 🚀 Lancer l'application
 
 ```bash
-.venv/bin/streamlit run app.py        # puis http://localhost:8501
+.venv/bin/streamlit run app.py        # puis http://localhost:8507
 ```
 
 ## 🗂️ Structure

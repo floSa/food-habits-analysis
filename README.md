@@ -39,7 +39,7 @@ uv sync            # installe les dépendances (pyproject.toml / uv.lock)
 ## 🖥️ Lancer l'application Streamlit
 
 ```bash
-.venv/bin/streamlit run app.py      # puis ouvrir http://localhost:8501
+.venv/bin/streamlit run app.py      # puis ouvrir http://localhost:8507
 ```
 
 Description des pages : [docs/README_APP.md](docs/README_APP.md).

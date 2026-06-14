@@ -5,7 +5,7 @@ import os
 OUTPUT_DIR = "docs/screenshots"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-BASE_URL = "http://localhost:8502"
+BASE_URL = "http://localhost:8507"
 
 def run():
     with sync_playwright() as p:
