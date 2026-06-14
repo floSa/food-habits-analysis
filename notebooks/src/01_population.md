@@ -201,7 +201,47 @@ contraintes médicales (diabète, sans gluten : ~1 % chacune). Cette part non n�
 de végétariens est à garder en tête lors de l'analyse des consommations de viande.
 
 <!-- #region -->
-## 8. Synthèse & limites de représentativité
+## 8. Cartographie des profils socio-démographiques (ACM)
+<!-- #endregion -->
+
+On résume les six variables socio-démographiques par une Analyse des Correspondances
+Multiples (des modalités proches sont souvent partagées par les mêmes individus), avec
+inertie corrigée de Benzécri.
+
+```python
+import prince
+from utils import analysis as A
+
+DEMO = ["Sexe", "Age", "Rura", "Card", "Etud", "pro"]
+Xd = df[DEMO].astype(str).fillna("NR")
+mca_d = prince.MCA(n_components=4, random_state=42).fit(Xd)
+ben = A.benzecri_percentages(mca_d.eigenvalues_, len(DEMO))
+coords_d = mca_d.column_coordinates(Xd)
+
+fig, ax = plt.subplots(figsize=(10, 7))
+palette = dict(zip(DEMO, sns.color_palette("tab10", len(DEMO))))
+for idx in coords_d.index:
+    var, mod = idx.split("__")
+    ax.scatter(coords_d.loc[idx, 0], coords_d.loc[idx, 1], color=palette[var], s=35)
+    ax.annotate(mod, (coords_d.loc[idx, 0], coords_d.loc[idx, 1]), fontsize=8)
+ax.axhline(0, color="grey", lw=0.6); ax.axvline(0, color="grey", lw=0.6)
+ax.set_xlabel(f"Axe 1 ({ben[0]:.0f} %)"); ax.set_ylabel(f"Axe 2 ({ben[1]:.0f} %)")
+ax.set_title("ACM des variables socio-démographiques (inertie corrigée Benzécri)")
+ax.legend(handles=[plt.Line2D([0], [0], marker="o", ls="", color=palette[v], label=v) for v in DEMO], fontsize=8)
+fig.tight_layout()
+```
+
+Contrairement à l'espace des consommations (notebook 03), l'espace socio-démographique est
+**fortement structuré** (plan 1-2 ≈ 89 % d'inertie corrigée). L'**axe 1 est un gradient
+d'âge / de cycle de vie** : il oppose les **retraités et +60 ans** (et, plus discrètement, le
+rural) aux **étudiants et 18-34 ans**. Âge et profession se confondent largement
+(retraité ↔ +60, étudiant ↔ 18-34) : nos variables sociales se résument en grande partie à
+l'âge. Cela éclaire deux résultats à venir — l'âge comme premier déterminant du Score Santé
+(notebook 02), et le fait que cet axe d'âge ne suffise pourtant pas à structurer les
+assiettes (notebook 03).
+
+<!-- #region -->
+## 9. Synthèse & limites de représentativité
 <!-- #endregion -->
 
 <!-- #region -->

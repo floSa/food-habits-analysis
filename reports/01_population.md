@@ -138,7 +138,28 @@ Le **végétarisme** est le régime particulier le plus fréquent (≈ 8 %), loi
 contraintes médicales (diabète, sans gluten : ~1 % chacune). Cette part non négligeable
 de végétariens est à garder en tête lors de l'analyse des consommations de viande.
 
-## 8. Synthèse & limites de représentativité
+## 8. Cartographie des profils socio-démographiques (ACM)
+
+On résume les six variables socio-démographiques par une Analyse des Correspondances
+Multiples (des modalités proches sont souvent partagées par les mêmes individus), avec
+inertie corrigée de Benzécri.
+
+
+    
+![png](01_population_files/01_population_36_0.png)
+    
+
+
+Contrairement à l'espace des consommations (notebook 03), l'espace socio-démographique est
+**fortement structuré** (plan 1-2 ≈ 89 % d'inertie corrigée). L'**axe 1 est un gradient
+d'âge / de cycle de vie** : il oppose les **retraités et +60 ans** (et, plus discrètement, le
+rural) aux **étudiants et 18-34 ans**. Âge et profession se confondent largement
+(retraité ↔ +60, étudiant ↔ 18-34) : nos variables sociales se résument en grande partie à
+l'âge. Cela éclaire deux résultats à venir — l'âge comme premier déterminant du Score Santé
+(notebook 02), et le fait que cet axe d'âge ne suffise pourtant pas à structurer les
+assiettes (notebook 03).
+
+## 9. Synthèse & limites de représentativité
 
 **Profil type du répondant.** Une femme (≈ 73 %), jeune adulte de 18-34 ans (64 %),
 citadine (≈ 61 %), résidant dans le Sud (≈ 79 %), diplômée du supérieur (≈ 72 % de
