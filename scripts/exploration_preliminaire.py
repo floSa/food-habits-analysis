@@ -51,7 +51,7 @@ def plot_univariate_dist(df, columns, output_dir="docs/analysis_outputs"):
         print(f"Graphique sauvegardé: {output_dir}/dist_{col}.png")
 
 def main():
-    filepath = '/home/florian/mes_projets/Alimentation/enquete_alimentation.csv'
+    filepath = 'data/enquete_alimentation.csv'
     df = load_data(filepath)
     
     if df is not None:

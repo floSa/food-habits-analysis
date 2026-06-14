@@ -3,32 +3,31 @@ import numpy as np
 import sys
 import os
 
-# Ajouter le dossier parent au path pour importer le dict si nécessaire
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Racine du projet = dossier parent de utils/ (contient app.py, data/, ...)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 try:
-    from dict_questions_colonnes import code_to_question
+    from utils.dict_questions_colonnes import code_to_question
 except ImportError:
-    # Fallback si l'import échoue (ex: exécution depuis un autre dossier)
-    code_to_question = {}
-
-def load_data(filepath='enquete_alimentation.csv'):
-    """
-    Charge les données brutes depuis le CSV.
-    """
+    # Fallback si exécuté hors package (ex: cwd dans utils/)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     try:
-        # Essayer de trouver le fichier en chemin relatif ou absolu
-        if not os.path.exists(filepath):
-            # Tenter de le trouver dans le parent si on est dans pages/ ou utils/
-            parent_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), filepath)
-            if os.path.exists(parent_path):
-                filepath = parent_path
-            else:
-                # Absolu par défaut fallback
-                filepath = '/home/florian/mes_projets/Alimentation/enquete_alimentation.csv'
-        
-        df = pd.read_csv(filepath, sep=';')
-        return df
+        from dict_questions_colonnes import code_to_question
+    except ImportError:
+        code_to_question = {}
+
+def load_data(filepath=None):
+    """
+    Charge les données brutes depuis data/enquete_alimentation.csv.
+
+    Le chemin est résolu par rapport à la racine du projet : le fichier est
+    donc trouvé quel que soit le dossier d'exécution (app Streamlit lancée
+    depuis la racine, notebooks dans notebooks/, scripts dans scripts/).
+    """
+    if filepath is None:
+        filepath = os.path.join(PROJECT_ROOT, "data", "enquete_alimentation.csv")
+    try:
+        return pd.read_csv(filepath, sep=";")
     except Exception as e:
         print(f"Erreur de chargement: {e}")
         return None
