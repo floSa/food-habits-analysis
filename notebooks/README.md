@@ -5,7 +5,7 @@ Cinq notebooks thématiques analysent l'enquête (1 681 répondants). Chaque th�
 
 | Format | Emplacement | Pour quoi faire |
 |---|---|---|
-| Source **jupytext** (`.md`, avec code) | `notebooks/NN_*.md` | la **source éditable** — on ne modifie que celle-ci |
+| Source **jupytext** (`.md`, avec code) | `notebooks/src/NN_*.md` | la **source éditable** — on ne modifie que celle-ci |
 | Notebook **exécuté** (`.ipynb`, code + sorties) | `notebooks/NN_*.ipynb` | explorer / relancer dans Jupyter |
 | **Rapport** sans code (`.md`, texte + tableaux + images) | `reports/NN_*.md` | **lecture / partage** |
 

@@ -18,7 +18,7 @@ uv sync                 # installe les dépendances depuis pyproject.toml / uv.l
 .venv/bin/streamlit run app.py
 ```
 
-Détails des pages dans [README_APP.md](README_APP.md).
+Détails des pages dans [docs/README_APP.md](docs/README_APP.md).
 
 ## Notebooks & rapports d'analyse
 

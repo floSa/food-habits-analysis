@@ -2,7 +2,7 @@ from playwright.sync_api import sync_playwright
 import time
 import os
 
-OUTPUT_DIR = "/home/florian/mes_projets/Alimentation/screenshots"
+OUTPUT_DIR = "docs/screenshots"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 BASE_URL = "http://localhost:8502"

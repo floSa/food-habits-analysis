@@ -29,7 +29,7 @@ def basic_info(df):
     print("\n--- Doublons ---")
     print(f"Nombre de doublons: {df.duplicated().sum()}")
 
-def plot_univariate_dist(df, columns, output_dir="analysis_outputs"):
+def plot_univariate_dist(df, columns, output_dir="docs/analysis_outputs"):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
