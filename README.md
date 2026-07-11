@@ -62,3 +62,21 @@ Régénération depuis les sources : `bash notebooks/build.sh`.
 bash notebooks/build.sh                 # tout
 bash notebooks/build.sh 02_habitudes    # un seul
 ```
+
+---
+
+## Licences & composants
+
+| Composant | Rôle | Licence |
+|---|---|---|
+| pandas / NumPy | Manipulation & calcul | BSD-3-Clause |
+| SciPy / statsmodels | Tests statistiques | BSD-3-Clause |
+| pingouin | Statistiques | GPL-3.0 |
+| prince | Analyse factorielle (ACM/AFM) | MIT `<à confirmer>` |
+| matplotlib / seaborn | Visualisation | matplotlib (PSF-based) / BSD-3-Clause |
+| plotly | Visualisation interactive | MIT |
+| wordcloud | Nuages de mots | MIT |
+| jupytext / nbconvert | Notebooks (source ⇄ ipynb ⇄ rapports) | BSD-3-Clause |
+| Streamlit | Application web | Apache-2.0 |
+| openpyxl | Lecture Excel | MIT |
+| **Ce projet** | Code applicatif | MIT — Copyright (c) 2026 floSa `<à confirmer : aucun fichier LICENSE présent>` |
